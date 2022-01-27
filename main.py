@@ -29,13 +29,11 @@ player = int(input("Wie viele Spieler seid ihr? 1/2"))
 
 
 
-while game = true:
+while game == true:
   if player == 1:
     print("Du spiels allein gegen den Computer!")
-    game = True
   if player == 2:
     print("Ihr spielt zu zweit!")
-    game = True
 
       
     # Programm beenden wenn x gedrückt
