@@ -19,17 +19,23 @@ black = (0, 0, 0)
 
 
 #Spielfeld
-
+screen = pygame.display.set_mode((300, 300))
+screen.blit(black, (0, 0))
 
 #Game 
 print("Herzlich wilkommen bei TikTakToe")
 player = int(input("Wie viele Spieler seid ihr? 1/2"))
 
-if player == 1:
-  print("Du spiels allein gegen den Computer!")
 
-if player == 2:
-  print("Ihr spielt zu zweit!")
+
+
+while game = true:
+  if player == 1:
+    print("Du spiels allein gegen den Computer!")
+    game = True
+  if player == 2:
+    print("Ihr spielt zu zweit!")
+    game = True
 
       
     # Programm beenden wenn x gedrückt
