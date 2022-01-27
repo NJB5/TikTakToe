@@ -6,7 +6,10 @@ import sys
 pygame.init()
 
 #Player
-XO = ""
+X = pygame.image.load("image/X.png")
+O = pygame.image.load("image/O.png")
+X = pygame.transform.scale(X, (30, 30))
+O = pygame.transform.scale(O, (30, 30))
 
 # Farben definieren r, g, b
 red = (255, 0, 0)
@@ -15,27 +18,19 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 
 
-# Spieler laden
-circle = pygame.image.load("images/Santa.png")
+#Spielfeld
 
-# Skaliere Figur Bild auf 70 70
-santa = pygame.transform.scale(santa, (70, 70))
 
-# Gameloop - Endlosschleife
-while True:
+#Game 
+print("Herzlich wilkommen bei TikTakToe")
+player = int(input("Wie viele Spieler seid ihr? 1/2"))
 
-    # [(a, 0), (b, 0), (up, 0), (space, 1)]
-    pressed = pygame.key.get_pressed()
-    if pressed[pygame.K_UP]:
-        y -= speed
-    elif pressed[pygame.K_DOWN]:
-        y += speed
-    elif pressed[pygame.K_LEFT]:
-        x -= speed
-    elif pressed[pygame.K_RIGHT]:
-        x += speed
-    elif pressed[pygame.K_SPACE]:
-        y -= 10
+if player == 1:
+  print("Du spiels allein gegen den Computer!")
+
+if player == 2:
+  print("Ihr spielt zu zweit!")
+
       
     # Programm beenden wenn x gedrückt
     for ev in pygame.event.get():
