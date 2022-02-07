@@ -1,42 +1,43 @@
-#Bibliotheken importieren
+#Import nötiger Bibliotheken
 import pygame
 import sys
 
-# starte pygame
+#Starte Pygame
 pygame.init()
 
-# legt eine Uhr fest
-clock = pygame.time.Clock()
-# lädt das Bild in die Variable bg
-bg = pygame.image.load("Bilder/Weihnachten.jpg")
-# scaliert hintergrund auf Größe 300, 300
-bg = pygame.transform.scale(bg, (400, 400))
-# Größe des Fenster definieren
-screen = pygame.display.set_mode((400, 400))
+#Player
+X = pygame.image.load("images/X.png")
+O = pygame.image.load("images/O.png")
+X = pygame.transform.scale(X, (30, 30))
+O = pygame.transform.scale(O, (30, 30))
 
 # Farben definieren r, g, b
-yellow = (255, 210, 0)
 red = (255, 0, 0)
+blue = (0, 0, 255)
 white = (255, 255, 255)
+black = (0, 0, 0)
 
-# Werte für Spielfigur, x, y = Kooridinaten, speed = Geschwindigkeit
-x = 200
-y = 200
-speed = 3
 
-# Rechteck erstellen
-rectangle = pygame.Rect(x, y, 20, 30)
+#Spielfeld
+screen = pygame.display.set_mode((300, 300))
 
-# Spieler laden
-playerOne = pygame.image.load("images/X.png")
-playerTwo = pygame.image.load("images/O.png")
 
-# Skaliert Spieler auf 25 25
-playerOne = pygame.transform.scale(playerOne, (25, 25))
-playerTwo = pygame.transform.scale(playerTwo, (25, 25))
+#Game 
+game = "false"
+print("Herzlich wilkommen bei TikTakToe")
+player = int(input("Wie viele Spieler seid ihr? 1/2"))
+game = "true" 
 
-# Gameloop - Endlosschleife
-while True:      
+
+
+
+while game == "true":
+  if player == 1:
+    print("Du spiels allein gegen den Computer!")
+  if player == 2:
+    print("Ihr spielt zu zweit!")
+
+      
     # Programm beenden wenn x gedrückt
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
