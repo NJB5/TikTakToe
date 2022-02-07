@@ -1,0 +1,78 @@
+import pygame
+import sys
+
+# starte pygame
+pygame.init()
+
+# legt eine Uhr fest
+clock = pygame.time.Clock()
+# lädt das Bild in die Variable bg
+bg = pygame.image.load("Bilder/Weihnachten.jpg")
+# scaliert hintergrund auf Größe 300, 300
+bg = pygame.transform.scale(bg, (300, 300))
+# Größe des Fenster definieren
+screen = pygame.display.set_mode((300, 300))
+
+# Farben definieren r, g, b
+yellow = (255, 210, 0)
+red = (255, 0, 0)
+white = (255, 255, 255)
+
+# Werte für Spielfigur, x, y = Kooridinaten, speed = Geschwindigkeit
+x = 20
+y = 20
+speed = 3
+
+# Rechteck erstellen
+rectangle = pygame.Rect(x, y, 20, 30)
+
+# Spieler laden
+santa = pygame.image.load("Bilder/Santa.png")
+# Skaliert Bild auf 70 70
+santa = pygame.transform.scale(santa, (70, 70))
+
+# Gameloop - Endlosschleife
+while True:
+
+    # [(a, 0), (b, 0), (up, 0), (space, 1)]
+    pressed = pygame.key.get_pressed()
+    if pressed[pygame.K_UP]:
+        y -= speed
+    elif pressed[pygame.K_DOWN]:
+        y += speed
+    elif pressed[pygame.K_LEFT]:
+        x -= speed
+    elif pressed[pygame.K_RIGHT]:
+        x += speed
+    elif pressed[pygame.K_SPACE]:
+        y -= 10
+      
+    # Programm beenden wenn x gedrückt
+    for ev in pygame.event.get():
+        if ev.type == pygame.QUIT:
+            sys.exit()
+
+    # Mausposition mx = x-Pos ...
+    mx, my = pygame.mouse.get_pos()
+
+    # Steuert die Spielfigur per Maus
+    if pygame.mouse.get_pressed()[0]== True:         
+      x = mx - 35
+      y = my - 35
+
+
+    # Anzeigen der Bilder
+    screen.blit(bg, (0, 0))
+    screen.blit(santa, (x, y))
+
+    # Kreise oder Rechtecke laden
+    pygame.draw.circle(screen, white, (150, 90), 30)
+    #screen.fill((0,0,0))
+    #pygame.draw.rect(screen, red, (x,y, 20, 30))
+
+    # am ende der Schleife einmal updaten
+    pygame.display.update()
+
+    clock.tick(60)
+    #print(clock.get_fps())
+

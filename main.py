@@ -6,8 +6,8 @@ import sys
 pygame.init()
 
 #Player
-X = pygame.image.load("image/X.png")
-O = pygame.image.load("image/O.png")
+X = pygame.image.load("images/X.png")
+O = pygame.image.load("images/O.png")
 X = pygame.transform.scale(X, (30, 30))
 O = pygame.transform.scale(O, (30, 30))
 
@@ -20,16 +20,18 @@ black = (0, 0, 0)
 
 #Spielfeld
 screen = pygame.display.set_mode((300, 300))
-screen.blit(black, (0, 0))
+
 
 #Game 
+game = "false"
 print("Herzlich wilkommen bei TikTakToe")
 player = int(input("Wie viele Spieler seid ihr? 1/2"))
+game = "true" 
 
 
 
 
-while game == true:
+while game == "true":
   if player == 1:
     print("Du spiels allein gegen den Computer!")
   if player == 2:
